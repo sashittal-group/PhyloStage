@@ -1,0 +1,20 @@
+[project]
+name = "PhyloStage"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "gurobipy==13.0.1",
+    "ipykernel==7.2.0",
+    "matplotlib==3.10.8",
+    "networkx==3.6.1",
+    "numpy==2.4.3",
+    "pandas==3.0.1",
+    "seaborn==0.13.2",
+    "tqdm==4.67.3",
+]
+
+[tool.setuptools]
+package-dir = {"" = "code"}
+packages = ["phylostage"]
