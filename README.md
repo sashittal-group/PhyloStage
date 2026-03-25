@@ -9,3 +9,27 @@ PhyloStage takes a family $\mathcal{T}$ of sets of candidate tumor phylogenies f
 - PhyloStage infers multi-stage pathway progression models from cohorts of tumor phylogenies, representing cancer evolution as a partial order over pathways.
 - PhyloStage supports phylogenies with parallel mutations, incorporates uncertainty across multiple candidate phylogenies per patient, and resolves ambiguous mutation orderings.
 - PhyloStage stratifies patients by stage of cancer progression, validated on AML and NSCLC tumor phylogenies.
+
+
+## Installation
+To install PhyloStage and its dependencies, follow the steps below:
+
+```bash
+git clone https://github.com/sashittal-group/PhyloStage.git
+cd PhyloStage
+pip install -e .
+```
+or
+```bash
+pip install git+https://github.com/sashittal-group/PhyloStage.git
+```
+
+## Running PhyloStage
+### On Simulated Data
+The following notebook runs PhyloStage and MASTRO on simulated data. This notebooks summarises the results.
+
+### On AML Data
+The following notebook runs PhyloStage on AML Data. This notebooks summarises the findings.
+
+### On TRACERx Data
+The following notebook runs PhyloStage on TRACERx Data. This notebooks summarises the findings.
