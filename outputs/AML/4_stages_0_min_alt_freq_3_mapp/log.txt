@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 78.27326595800696 seconds
+Running all of problem_1_1() took 78.44275120802922 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 6.099173553719005
+
+# strictly consistent patients (out of 36 which had enough pathways, dependencies, and levels): 6
+Strictly consistent patients: [14, 23, 24, 81, 85, 91]
+
+# partially consistent patients (out of the remaining 120 - 6 = 114 that weren't strictly consistent): 6
+Partially consistent patients: [8, 20, 80, 113, 114, 119]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 30): 12
+alterations used: ['NPM1', 'FLT3', 'RUNX1', 'DNMT3A', 'SRSF2', 'NRAS', 'IDH2', 'KRAS', 'U2AF1', 'ASXL1', 'EZH2', 'ETV6']
+Pathways: {1: ['SRSF2', 'U2AF1', 'EZH2'], 2: ['NPM1', 'FLT3', 'NRAS'], 3: ['DNMT3A', 'KRAS', 'ASXL1'], 4: ['RUNX1', 'IDH2', 'ETV6']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('DNMT3A', 'KRAS', 'ASXL1'), ('NPM1', 'FLT3', 'NRAS'), ('RUNX1', 'IDH2', 'ETV6'), ('SRSF2', 'U2AF1', 'EZH2')]
+CBNPM edges: [(('DNMT3A', 'KRAS', 'ASXL1'), ('SRSF2', 'U2AF1', 'EZH2')), (('RUNX1', 'IDH2', 'ETV6'), ('DNMT3A', 'KRAS', 'ASXL1')), (('SRSF2', 'U2AF1', 'EZH2'), ('NPM1', 'FLT3', 'NRAS'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.0
+
+number of null datasets with >= score for the PM as real dataset does: 0
+
+real score: 36
+
+average null score: 11.404
+
+effect size: 6.097618436092732
+
+average alterations per pathway: 3.0
+number of alterations with at least 0 frequency: 30

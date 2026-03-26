@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 34.71417475002818 seconds
+Running all of problem_1_1() took 34.79213791602524 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 27.410000000000064
+
+# strictly consistent patients (out of 80 which had enough pathways, dependencies, and levels): 27
+Strictly consistent patients: [2, 16, 18, 20, 21, 26, 30, 31, 36, 39, 49, 51, 52, 61, 64, 65, 67, 69, 70, 72, 73, 77, 80, 91, 92, 94, 99]
+
+# partially consistent patients (out of the remaining 99 - 27 = 72 that weren't strictly consistent): 14
+Partially consistent patients: [6, 14, 17, 25, 27, 29, 35, 43, 76, 87, 90, 96, 97, 98]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 54): 15
+alterations used: ['ARHGAP35', 'TP53', 'NF1', 'EGFR', 'KRAS', 'MET', 'CDKN2A', 'PIK3CA', 'CMTR2', 'FAT1', 'COL5A2', 'SERPINB13', 'FGFR1', 'RASA1', 'SOX2']
+Pathways: {1: ['KRAS', 'CDKN2A', 'SERPINB13', 'RASA1', 'SOX2'], 2: ['NF1', 'EGFR', 'PIK3CA', 'FAT1', 'COL5A2'], 3: ['ARHGAP35', 'TP53', 'MET', 'CMTR2', 'FGFR1']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('ARHGAP35', 'TP53', 'MET', 'CMTR2', 'FGFR1'), ('KRAS', 'CDKN2A', 'SERPINB13', 'RASA1', 'SOX2'), ('NF1', 'EGFR', 'PIK3CA', 'FAT1', 'COL5A2')]
+CBNPM edges: [(('ARHGAP35', 'TP53', 'MET', 'CMTR2', 'FGFR1'), ('KRAS', 'CDKN2A', 'SERPINB13', 'RASA1', 'SOX2')), (('KRAS', 'CDKN2A', 'SERPINB13', 'RASA1', 'SOX2'), ('NF1', 'EGFR', 'PIK3CA', 'FAT1', 'COL5A2'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.0
+
+number of null datasets with >= score for the PM as real dataset does: 0
+
+real score: 100
+
+average null score: 82.117
+
+effect size: 3.1757548776638926
+
+average alterations per pathway: 5.0
+number of alterations with at least 3 frequency: 54

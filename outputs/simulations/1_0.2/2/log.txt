@@ -1,0 +1,117 @@
+----------------------------------------------------------------------------------------------------
+See how many strictly and partially consistent with the CBNPM, and with each trajectory
+
+Original linear progression model with pathways: [['IDH1', 'IDH2'], ['SRSF2'], ['NRAS', 'KRAS']]
+
+There are 2 strictly consistent patients: [23, 113]
+There are 63 partially consistent patients: [1, 2, 4, 5, 15, 18, 21, 23, 24, 25, 26, 27, 29, 30, 33, 35, 36, 40, 43, 46, 48, 49, 51, 52, 54, 55, 57, 60, 62, 63, 65, 66, 69, 70, 71, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 93, 96, 97, 98, 99, 103, 106, 107, 108, 110, 111, 112, 113]
+
+Trajectory 1: IDH1 -> SRSF2 -> NRAS
+
+There are 0 strictly consistent patients: []
+There are 31 partially consistent patients: [2, 4, 15, 21, 23, 24, 25, 26, 40, 48, 49, 52, 57, 63, 65, 69, 70, 71, 76, 77, 79, 81, 82, 85, 87, 96, 103, 106, 107, 108, 112]
+
+Trajectory 2: IDH1 -> SRSF2 -> KRAS
+
+There are 1 strictly consistent patients: [23]
+There are 31 partially consistent patients: [2, 4, 15, 21, 23, 24, 25, 26, 40, 48, 49, 52, 57, 63, 65, 69, 70, 71, 76, 77, 79, 81, 82, 85, 87, 96, 103, 106, 107, 108, 112]
+
+Trajectory 3: IDH2 -> SRSF2 -> NRAS
+
+There are 1 strictly consistent patients: [113]
+There are 34 partially consistent patients: [1, 5, 18, 27, 29, 30, 33, 35, 36, 43, 46, 51, 54, 55, 57, 60, 62, 66, 74, 75, 78, 80, 83, 84, 86, 88, 93, 97, 98, 99, 108, 110, 111, 113]
+
+Trajectory 4: IDH2 -> SRSF2 -> KRAS
+
+There are 0 strictly consistent patients: []
+There are 34 partially consistent patients: [1, 5, 18, 27, 29, 30, 33, 35, 36, 43, 46, 51, 54, 55, 57, 60, 62, 66, 74, 75, 78, 80, 83, 84, 86, 88, 93, 97, 98, 99, 108, 110, 111, 113]
+
+----------------------------------------------------------------------------------------------------
+Run our ilp on simulated trees to get pathway progression model
+
+with a max alterations per pathway of 2
+
+Set parameter LogToConsole to value 0
+
+Running the ILP took 20.828989624977112 seconds
+Running all of problem_1_1() took 20.976216999813914 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 5.239669421487596
+
+# strictly consistent patients (out of 77 which had enough pathways, dependencies, and levels): 5
+Strictly consistent patients: [10, 23, 52, 63, 85]
+
+# partially consistent patients (out of the remaining 120 - 5 = 115 that weren't strictly consistent): 24
+Partially consistent patients: [15, 21, 24, 25, 26, 29, 40, 49, 57, 65, 69, 70, 71, 81, 87, 94, 96, 103, 105, 106, 107, 108, 109, 118]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 30): 6
+alterations used: ['IDH1', 'SRSF2', 'SF3B1', 'TP53', 'SETBP1', 'TET2']
+Pathways: {1: ['IDH1', 'SF3B1'], 2: ['SRSF2', 'SETBP1'], 3: ['TP53', 'TET2']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to ILP_max_2_alt_PPM.png
+CBNPM nodes: [('IDH1', 'SF3B1'), ('SRSF2', 'SETBP1'), ('TP53', 'TET2')]
+CBNPM edges: [(('IDH1', 'SF3B1'), ('SRSF2', 'SETBP1')), (('SRSF2', 'SETBP1'), ('TP53', 'TET2'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+with no max alterations per pathway
+
+Set parameter LogToConsole to value 0
+
+Running the ILP took 893.6057967911474 seconds
+Running all of problem_1_1() took 893.747983874986 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 16.314049586776918
+
+# strictly consistent patients (out of 77 which had enough pathways, dependencies, and levels): 16
+Strictly consistent patients: [17, 18, 20, 23, 24, 27, 52, 59, 63, 66, 69, 81, 85, 98, 113, 118]
+
+# partially consistent patients (out of the remaining 120 - 16 = 104 that weren't strictly consistent): 22
+Partially consistent patients: [1, 3, 6, 15, 16, 25, 26, 29, 40, 43, 57, 65, 70, 75, 83, 86, 96, 99, 102, 106, 107, 108]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 30): 21
+alterations used: ['JAK2', 'MYC', 'CBL', 'NRAS', 'PPM1D', 'IDH1', 'RUNX1', 'EZH2', 'STAG2', 'DNMT3A', 'U2AF1', 'SRSF2', 'PHF6', 'SF3B1', 'ASXL1', 'TP53', 'SMC3', 'ETV6', 'SETBP1', 'TET2', 'IDH2']
+Pathways: {1: ['CBL', 'STAG2', 'DNMT3A', 'SRSF2', 'SF3B1', 'ETV6', 'SETBP1'], 2: ['JAK2', 'MYC', 'NRAS', 'RUNX1', 'EZH2', 'U2AF1', 'PHF6', 'TP53', 'TET2'], 3: ['PPM1D', 'IDH1', 'ASXL1', 'SMC3', 'IDH2']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to ILP_no_max_alt_PPM.png
+CBNPM nodes: [('CBL', 'STAG2', 'DNMT3A', 'SRSF2', 'SF3B1', 'ETV6', 'SETBP1'), ('JAK2', 'MYC', 'NRAS', 'RUNX1', 'EZH2', 'U2AF1', 'PHF6', 'TP53', 'TET2'), ('PPM1D', 'IDH1', 'ASXL1', 'SMC3', 'IDH2')]
+CBNPM edges: [(('CBL', 'STAG2', 'DNMT3A', 'SRSF2', 'SF3B1', 'ETV6', 'SETBP1'), ('JAK2', 'MYC', 'NRAS', 'RUNX1', 'EZH2', 'U2AF1', 'PHF6', 'TP53', 'TET2')), (('PPM1D', 'IDH1', 'ASXL1', 'SMC3', 'IDH2'), ('CBL', 'STAG2', 'DNMT3A', 'SRSF2', 'SF3B1', 'ETV6', 'SETBP1'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+----------------------------------------------------------------------------------------------------
+Run MASTRO on simulated trees
+
+time took to run run_MASTRO function: 1.2635853327810764
+time took to run MASTRO itself: 1.2422859999351203
+
+support of trajectory with min p-value: 7
+p-value: 0.009049479166666667
+indexes of trees the trajectory was observed in: [15, 26, 76, 77, 79, 85, 96]
+
+raw MASTRO output (mainly to ensure it was parsed correctly):
+
+STDOUT: min pvalue 0.009049479166666667
+[('IDH1', 'SRSF2'), ('g', 'IDH1'), ('g', 'SRSF2')] 7 [14, 25, 75, 76, 78, 84, 95]
+./lcm53/transnum.pl ./lcm53/table-file-simulated_trees_MASTRO_format_path.txt < simulated_trees_MASTRO_format_path.txt > ./lcm53/lcm-out-simulated_trees_MASTRO_format_path_ids.txt
+./lcm53/lcm FfI ./lcm53/lcm-out-simulated_trees_MASTRO_format_path_ids.txt 2 ./lcm53/lcm-out-simulated_trees_MASTRO_format_path.txt > out_lcm_simulated_trees_MASTRO_format_path.txt.txt 2>&1
+python3 convert_results.py -m ./lcm53/table-file-simulated_trees_MASTRO_format_path.txt -i ./lcm53/lcm-out-simulated_trees_MASTRO_format_path.txt -o simulated_trees_MASTRO_format_path_convres.txt
+python3 filter_results.py -i simulated_trees_MASTRO_format_path_convres.txt -o simulated_trees_MASTRO_format_path_filtered.txt
+python3 compute_significance.py -i simulated_trees_MASTRO_format_path_filtered.txt -g simulated_trees_MASTRO_format_path.txt -o simulated_trees_MASTRO_format_path_final.txt -minp minptest.csv -p 1
+
+STDERR: 
+
+trajectory with min p-value:
+IDH1 -> SRSF2
+
+full results df in MASTRO_results.csv

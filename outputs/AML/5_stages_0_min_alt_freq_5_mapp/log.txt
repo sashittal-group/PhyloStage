@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 330.68816587497713 seconds
+Running all of problem_1_1() took 330.94007070799125 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 3.148760330578516
+
+# strictly consistent patients (out of 11 which had enough pathways, dependencies, and levels): 3
+Strictly consistent patients: [2, 23, 105]
+
+# partially consistent patients (out of the remaining 120 - 3 = 117 that weren't strictly consistent): 15
+Partially consistent patients: [11, 15, 19, 22, 25, 27, 29, 37, 46, 68, 78, 93, 99, 101, 107]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 30): 17
+alterations used: ['NPM1', 'FLT3', 'JAK2', 'SF3B1', 'RUNX1', 'DNMT3A', 'NRAS', 'IDH2', 'KRAS', 'U2AF1', 'SETBP1', 'ASXL1', 'KIT', 'EZH2', 'ETV6', 'PHF6', 'MYC']
+Pathways: {1: ['NPM1', 'DNMT3A', 'KRAS', 'ASXL1', 'MYC'], 2: ['SF3B1', 'U2AF1', 'SETBP1', 'KIT', 'PHF6'], 3: ['FLT3', 'ETV6'], 4: ['JAK2', 'NRAS', 'IDH2'], 5: ['RUNX1', 'EZH2']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('FLT3', 'ETV6'), ('JAK2', 'NRAS', 'IDH2'), ('NPM1', 'DNMT3A', 'KRAS', 'ASXL1', 'MYC'), ('RUNX1', 'EZH2'), ('SF3B1', 'U2AF1', 'SETBP1', 'PHF6')]
+CBNPM edges: [(('FLT3', 'ETV6'), ('RUNX1', 'EZH2')), (('NPM1', 'DNMT3A', 'KRAS', 'ASXL1', 'MYC'), ('SF3B1', 'U2AF1', 'SETBP1', 'PHF6')), (('RUNX1', 'EZH2'), ('JAK2', 'NRAS', 'IDH2')), (('SF3B1', 'U2AF1', 'SETBP1', 'PHF6'), ('FLT3', 'ETV6'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.0
+
+number of null datasets with >= score for the PM as real dataset does: 0
+
+real score: 32
+
+average null score: 16.81
+
+effect size: 5.766917731104422
+
+average alterations per pathway: 3.2
+number of alterations with at least 0 frequency: 30

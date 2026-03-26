@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 109.77716829197016 seconds
+Running all of problem_1_1() took 109.82670845795656 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 16.340000000000053
+
+# strictly consistent patients (out of 58 which had enough pathways, dependencies, and levels): 16
+Strictly consistent patients: [16, 17, 20, 49, 59, 61, 62, 66, 68, 73, 74, 75, 80, 81, 92, 99]
+
+# partially consistent patients (out of the remaining 99 - 16 = 83 that weren't strictly consistent): 18
+Partially consistent patients: [1, 22, 24, 26, 29, 35, 48, 55, 57, 76, 85, 86, 87, 89, 90, 91, 94, 96]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 26): 17
+alterations used: ['TP53', 'EGFR', 'TERT', 'KRAS', 'CDKN2A', 'NOTCH1', 'STK11', 'ARID2', 'MYC', 'FAT1', 'COL5A2', 'COL2A1', 'CCND1', 'FGFR1', 'NCOA6', 'UBR5', 'SOX2']
+Pathways: {1: ['TP53', 'NCOA6'], 2: ['EGFR', 'CDKN2A', 'ARID2', 'CCND1', 'FGFR1'], 3: ['TERT', 'KRAS', 'NOTCH1', 'COL5A2', 'UBR5'], 4: ['STK11', 'MYC', 'FAT1', 'COL2A1', 'SOX2']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('EGFR', 'CDKN2A', 'ARID2', 'CCND1', 'FGFR1'), ('STK11', 'MYC', 'FAT1', 'COL2A1', 'SOX2'), ('TERT', 'KRAS', 'NOTCH1', 'COL5A2', 'UBR5'), ('TP53', 'NCOA6')]
+CBNPM edges: [(('EGFR', 'CDKN2A', 'ARID2', 'CCND1', 'FGFR1'), ('STK11', 'MYC', 'FAT1', 'COL2A1', 'SOX2')), (('STK11', 'MYC', 'FAT1', 'COL2A1', 'SOX2'), ('TERT', 'KRAS', 'NOTCH1', 'COL5A2', 'UBR5')), (('TP53', 'NCOA6'), ('EGFR', 'CDKN2A', 'ARID2', 'CCND1', 'FGFR1'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.0
+
+number of null datasets with >= score for the PM as real dataset does: 0
+
+real score: 96
+
+average null score: 74.827
+
+effect size: 3.2497376535534506
+
+average alterations per pathway: 4.25
+number of alterations with at least 5 frequency: 26

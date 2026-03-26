@@ -1,0 +1,41 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 0.6018208329915069 seconds
+Running all of problem_1_1() took 0.6500334999873303 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 80.80000000000041
+
+# strictly consistent patients (out of 99 which had enough pathways, dependencies, and levels): 80
+Strictly consistent patients: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 44, 46, 47, 48, 50, 53, 54, 55, 57, 58, 59, 61, 62, 63, 64, 65, 66, 67, 69, 73, 75, 77, 78, 79, 80, 81, 82, 84, 85, 86, 87, 88, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+
+# partially consistent patients (out of the remaining 99 - 80 = 19 that weren't strictly consistent): 0
+Partially consistent patients: []
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 79): 17
+alterations used: ['NRAS', 'SMARCA4', 'EP300', 'DICER1', 'EGFR', 'PDGFRA', 'KRAS', 'NFE2L2', 'ARID1B', 'FAT1', 'KEAP1', 'CUX1', 'PTEN', 'RASA1', 'SPEN', 'LATS1', 'FAS']
+Pathways: {1: ['NRAS', 'SMARCA4', 'EP300', 'DICER1', 'EGFR', 'PDGFRA', 'KRAS', 'NFE2L2', 'ARID1B', 'FAT1', 'KEAP1', 'CUX1', 'PTEN', 'RASA1', 'SPEN', 'LATS1', 'FAS']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('NRAS', 'SMARCA4', 'EP300', 'DICER1', 'EGFR', 'PDGFRA', 'KRAS', 'NFE2L2', 'ARID1B', 'FAT1', 'KEAP1', 'CUX1', 'PTEN', 'RASA1', 'SPEN', 'LATS1', 'FAS')]
+CBNPM edges: []
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.229
+
+number of null datasets with >= score for the PM as real dataset does: 229
+
+real score: 80
+
+average null score: 79.074
+
+effect size: 1.4595369588580986
+
+average alterations per pathway: 17.0

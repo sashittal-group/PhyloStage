@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 11.699874459009152 seconds
+Running all of problem_1_1() took 11.73446404200513 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 45.629999999999875
+
+# strictly consistent patients (out of 89 which had enough pathways, dependencies, and levels): 45
+Strictly consistent patients: [1, 4, 6, 14, 15, 16, 18, 22, 24, 25, 26, 27, 28, 30, 38, 39, 41, 46, 47, 55, 57, 59, 61, 64, 65, 70, 72, 73, 74, 75, 76, 78, 79, 80, 82, 84, 85, 86, 90, 91, 92, 96, 97, 98, 99]
+
+# partially consistent patients (out of the remaining 99 - 45 = 54 that weren't strictly consistent): 18
+Partially consistent patients: [2, 10, 11, 12, 13, 19, 33, 34, 40, 42, 44, 50, 53, 56, 58, 83, 89, 95]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 36): 14
+alterations used: ['TP53', 'EGFR', 'KRAS', 'CDKN2A', 'PIK3CA', 'CMTR2', 'BRAF', 'KEAP1', 'ARID2', 'KMT2D', 'APC', 'CREBBP', 'FANCM', 'PTEN']
+Pathways: {1: ['TP53', 'CMTR2', 'BRAF', 'KMT2D', 'APC', 'FANCM'], 2: ['EGFR', 'KRAS', 'CDKN2A', 'PIK3CA', 'KEAP1', 'ARID2', 'CREBBP', 'PTEN']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('EGFR', 'KRAS', 'CDKN2A', 'PIK3CA', 'KEAP1', 'ARID2', 'CREBBP', 'PTEN'), ('TP53', 'CMTR2', 'BRAF', 'KMT2D', 'APC', 'FANCM')]
+CBNPM edges: [(('EGFR', 'KRAS', 'CDKN2A', 'PIK3CA', 'KEAP1', 'ARID2', 'CREBBP', 'PTEN'), ('TP53', 'CMTR2', 'BRAF', 'KMT2D', 'APC', 'FANCM'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.005
+
+number of null datasets with >= score for the PM as real dataset does: 5
+
+real score: 108
+
+average null score: 98.954
+
+effect size: 2.3119084553949896
+
+average alterations per pathway: 7.0
+number of alterations with at least 4 frequency: 36

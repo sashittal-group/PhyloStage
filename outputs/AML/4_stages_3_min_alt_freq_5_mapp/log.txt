@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 82.8996638749959 seconds
+Running all of problem_1_1() took 83.06100154202431 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 8.090909090909088
+
+# strictly consistent patients (out of 36 which had enough pathways, dependencies, and levels): 8
+Strictly consistent patients: [14, 18, 21, 23, 24, 81, 85, 91]
+
+# partially consistent patients (out of the remaining 120 - 8 = 112 that weren't strictly consistent): 3
+Partially consistent patients: [8, 80, 106]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 22): 16
+alterations used: ['WT1', 'NPM1', 'FLT3', 'RUNX1', 'DNMT3A', 'SRSF2', 'NRAS', 'IDH2', 'KRAS', 'TET2', 'GATA2', 'U2AF1', 'SETBP1', 'ASXL1', 'KIT', 'EZH2']
+Pathways: {1: ['SRSF2', 'U2AF1', 'KIT', 'EZH2'], 2: ['NPM1', 'FLT3', 'NRAS'], 3: ['WT1', 'RUNX1', 'IDH2', 'TET2', 'SETBP1'], 4: ['DNMT3A', 'KRAS', 'GATA2', 'ASXL1']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('DNMT3A', 'KRAS', 'GATA2', 'ASXL1'), ('NPM1', 'FLT3', 'NRAS'), ('SRSF2', 'U2AF1', 'KIT', 'EZH2'), ('WT1', 'RUNX1', 'IDH2', 'TET2', 'SETBP1')]
+CBNPM edges: [(('DNMT3A', 'KRAS', 'GATA2', 'ASXL1'), ('SRSF2', 'U2AF1', 'KIT', 'EZH2')), (('SRSF2', 'U2AF1', 'KIT', 'EZH2'), ('NPM1', 'FLT3', 'NRAS')), (('WT1', 'RUNX1', 'IDH2', 'TET2', 'SETBP1'), ('DNMT3A', 'KRAS', 'GATA2', 'ASXL1'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.0
+
+number of null datasets with >= score for the PM as real dataset does: 0
+
+real score: 38
+
+average null score: 9.36
+
+effect size: 7.051877387073348
+
+average alterations per pathway: 4.0
+number of alterations with at least 3 frequency: 22

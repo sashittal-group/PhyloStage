@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 1.2223400420043617 seconds
+Running all of problem_1_1() took 1.2646949170157313 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 41.629999999999875
+
+# strictly consistent patients (out of 89 which had enough pathways, dependencies, and levels): 41
+Strictly consistent patients: [1, 4, 6, 7, 8, 14, 15, 18, 21, 22, 23, 24, 25, 26, 27, 28, 30, 39, 46, 47, 55, 57, 59, 61, 62, 64, 66, 67, 69, 70, 73, 74, 75, 76, 78, 79, 81, 91, 94, 95, 98]
+
+# partially consistent patients (out of the remaining 99 - 41 = 58 that weren't strictly consistent): 22
+Partially consistent patients: [2, 3, 10, 11, 12, 13, 19, 31, 33, 34, 37, 38, 40, 41, 42, 44, 50, 53, 56, 58, 77, 88]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 54): 10
+alterations used: ['TP53', 'EGFR', 'KRAS', 'CMTR2', 'KEAP1', 'SGK223', 'ARID2', 'APC', 'RASA1', 'SOX2']
+Pathways: {1: ['EGFR', 'KRAS', 'KEAP1', 'RASA1', 'SOX2'], 2: ['TP53', 'CMTR2', 'SGK223', 'ARID2', 'APC']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('EGFR', 'KRAS', 'KEAP1', 'RASA1', 'SOX2'), ('TP53', 'CMTR2', 'SGK223', 'ARID2', 'APC')]
+CBNPM edges: [(('EGFR', 'KRAS', 'KEAP1', 'RASA1', 'SOX2'), ('TP53', 'CMTR2', 'SGK223', 'ARID2', 'APC'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.018
+
+number of null datasets with >= score for the PM as real dataset does: 18
+
+real score: 104
+
+average null score: 95.351
+
+effect size: 2.221361167597133
+
+average alterations per pathway: 5.0
+number of alterations with at least 3 frequency: 54

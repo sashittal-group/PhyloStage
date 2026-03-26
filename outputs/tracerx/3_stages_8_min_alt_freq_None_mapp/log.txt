@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 6.036668749991804 seconds
+Running all of problem_1_1() took 6.066077583003789 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 21.360000000000056
+
+# strictly consistent patients (out of 80 which had enough pathways, dependencies, and levels): 21
+Strictly consistent patients: [13, 16, 21, 25, 30, 31, 47, 49, 50, 51, 64, 65, 67, 73, 75, 78, 80, 81, 82, 86, 92]
+
+# partially consistent patients (out of the remaining 99 - 21 = 78 that weren't strictly consistent): 15
+Partially consistent patients: [5, 14, 27, 33, 35, 46, 55, 60, 61, 87, 88, 90, 91, 96, 97]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 16): 13
+alterations used: ['TP53', 'NF1', 'EGFR', 'MGA', 'KRAS', 'CDKN2A', 'PIK3CA', 'KEAP1', 'STK11', 'MYC', 'NFE2L2', 'FAT1', 'COL5A2']
+Pathways: {1: ['TP53', 'KEAP1', 'STK11'], 2: ['KRAS', 'CDKN2A', 'PIK3CA'], 3: ['NF1', 'EGFR', 'MGA', 'MYC', 'NFE2L2', 'FAT1', 'COL5A2']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('KRAS', 'CDKN2A', 'PIK3CA'), ('NF1', 'EGFR', 'MGA', 'MYC', 'NFE2L2', 'FAT1', 'COL5A2'), ('TP53', 'KEAP1', 'STK11')]
+CBNPM edges: [(('KRAS', 'CDKN2A', 'PIK3CA'), ('NF1', 'EGFR', 'MGA', 'MYC', 'NFE2L2', 'FAT1', 'COL5A2')), (('TP53', 'KEAP1', 'STK11'), ('KRAS', 'CDKN2A', 'PIK3CA'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.009
+
+number of null datasets with >= score for the PM as real dataset does: 9
+
+real score: 84
+
+average null score: 71.64
+
+effect size: 2.6331030504159103
+
+average alterations per pathway: 4.333333333333333
+number of alterations with at least 8 frequency: 16

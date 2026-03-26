@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 184.99477020901395 seconds
+Running all of problem_1_1() took 185.18582025001524 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 3.1239669421487632
+
+# strictly consistent patients (out of 11 which had enough pathways, dependencies, and levels): 3
+Strictly consistent patients: [10, 103, 111]
+
+# partially consistent patients (out of the remaining 120 - 3 = 117 that weren't strictly consistent): 12
+Partially consistent patients: [7, 13, 14, 20, 21, 38, 40, 51, 55, 70, 107, 114]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 19): 14
+alterations used: ['NPM1', 'FLT3', 'SF3B1', 'RUNX1', 'DNMT3A', 'PTPN11', 'NRAS', 'KRAS', 'TET2', 'TP53', 'GATA2', 'KIT', 'IDH1', 'EZH2']
+Pathways: {1: ['SF3B1', 'DNMT3A'], 2: ['PTPN11', 'NRAS', 'KIT'], 3: ['NPM1'], 4: ['FLT3', 'TP53'], 5: ['RUNX1', 'KRAS', 'TET2', 'GATA2', 'IDH1', 'EZH2']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('FLT3', 'TP53'), ('NPM1',), ('PTPN11', 'NRAS', 'KIT'), ('RUNX1', 'KRAS', 'TET2', 'GATA2', 'IDH1'), ('SF3B1', 'DNMT3A')]
+CBNPM edges: [(('NPM1',), ('FLT3', 'TP53')), (('PTPN11', 'NRAS', 'KIT'), ('NPM1',)), (('RUNX1', 'KRAS', 'TET2', 'GATA2', 'IDH1'), ('SF3B1', 'DNMT3A')), (('SF3B1', 'DNMT3A'), ('PTPN11', 'NRAS', 'KIT'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.0
+
+number of null datasets with >= score for the PM as real dataset does: 0
+
+real score: 35
+
+average null score: 11.138
+
+effect size: 9.036461008283343
+
+average alterations per pathway: 2.6
+number of alterations with at least 4 frequency: 19

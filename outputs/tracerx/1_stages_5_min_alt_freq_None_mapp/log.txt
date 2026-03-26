@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 0.10477345902472734 seconds
+Running all of problem_1_1() took 0.12496308301342651 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 71.71000000000036
+
+# strictly consistent patients (out of 99 which had enough pathways, dependencies, and levels): 71
+Strictly consistent patients: [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 44, 46, 47, 48, 50, 53, 54, 55, 56, 57, 58, 61, 63, 64, 66, 67, 69, 76, 77, 78, 80, 81, 82, 85, 86, 88, 89, 91, 92, 94, 95, 96, 97, 98]
+
+# partially consistent patients (out of the remaining 99 - 71 = 28 that weren't strictly consistent): 0
+Partially consistent patients: []
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 26): 9
+alterations used: ['EGFR', 'KRAS', 'KEAP1', 'NFE2L2', 'FAT1', 'COL2A1', 'CCND1', 'RASA1', 'PTEN']
+Pathways: {1: ['EGFR', 'KRAS', 'KEAP1', 'NFE2L2', 'FAT1', 'COL2A1', 'CCND1', 'RASA1', 'PTEN']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('EGFR', 'KRAS', 'KEAP1', 'NFE2L2', 'FAT1', 'COL2A1', 'CCND1', 'RASA1', 'PTEN')]
+CBNPM edges: []
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.786
+
+number of null datasets with >= score for the PM as real dataset does: 786
+
+real score: 71
+
+average null score: 70.786
+
+effect size: 0.5217898341700934
+
+average alterations per pathway: 9.0
+number of alterations with at least 5 frequency: 26

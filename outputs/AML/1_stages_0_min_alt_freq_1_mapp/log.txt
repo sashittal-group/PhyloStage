@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 0.10614383296342567 seconds
+Running all of problem_1_1() took 0.17143445898545906 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 49.404958677686025
+
+# strictly consistent patients (out of 120 which had enough pathways, dependencies, and levels): 49
+Strictly consistent patients: [1, 3, 9, 10, 12, 16, 17, 21, 22, 24, 25, 27, 28, 31, 32, 34, 35, 36, 37, 39, 42, 43, 48, 49, 50, 52, 53, 59, 60, 62, 68, 69, 71, 72, 73, 74, 78, 82, 83, 84, 89, 93, 95, 96, 101, 103, 109, 111, 118]
+
+# partially consistent patients (out of the remaining 120 - 49 = 71 that weren't strictly consistent): 0
+Partially consistent patients: []
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 30): 1
+alterations used: ['NPM1']
+Pathways: {1: ['NPM1']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('NPM1',)]
+CBNPM edges: []
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 1.0
+
+number of null datasets with >= score for the PM as real dataset does: 1000
+
+real score: 49
+
+average null score: 49.0
+
+effect size: nan
+
+average alterations per pathway: 1.0
+number of alterations with at least 0 frequency: 30

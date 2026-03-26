@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 37.93114879197674 seconds
+Running all of problem_1_1() took 38.086722083971836 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 17.28925619834716
+
+# strictly consistent patients (out of 77 which had enough pathways, dependencies, and levels): 17
+Strictly consistent patients: [16, 17, 18, 23, 42, 43, 48, 61, 62, 73, 81, 83, 84, 89, 98, 114, 115]
+
+# partially consistent patients (out of the remaining 120 - 17 = 103 that weren't strictly consistent): 18
+Partially consistent patients: [1, 15, 32, 33, 37, 40, 41, 49, 65, 66, 69, 74, 86, 94, 99, 108, 113, 116]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 30): 15
+alterations used: ['WT1', 'NPM1', 'SF3B1', 'DNMT3A', 'PTPN11', 'SRSF2', 'NRAS', 'IDH2', 'KRAS', 'GATA2', 'ASXL1', 'KIT', 'IDH1', 'STAG2', 'ETV6']
+Pathways: {1: ['NPM1', 'GATA2', 'ASXL1', 'STAG2', 'ETV6'], 2: ['PTPN11', 'SRSF2', 'NRAS', 'KRAS', 'KIT'], 3: ['WT1', 'SF3B1', 'DNMT3A', 'IDH2', 'IDH1']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('NPM1', 'GATA2', 'ASXL1', 'STAG2', 'ETV6'), ('PTPN11', 'SRSF2', 'NRAS', 'KRAS', 'KIT'), ('WT1', 'SF3B1', 'DNMT3A', 'IDH2', 'IDH1')]
+CBNPM edges: [(('NPM1', 'GATA2', 'ASXL1', 'STAG2', 'ETV6'), ('PTPN11', 'SRSF2', 'NRAS', 'KRAS', 'KIT')), (('WT1', 'SF3B1', 'DNMT3A', 'IDH2', 'IDH1'), ('NPM1', 'GATA2', 'ASXL1', 'STAG2', 'ETV6'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.0
+
+number of null datasets with >= score for the PM as real dataset does: 0
+
+real score: 76
+
+average null score: 31.023
+
+effect size: 7.498200725364252
+
+average alterations per pathway: 5.0
+number of alterations with at least 0 frequency: 30

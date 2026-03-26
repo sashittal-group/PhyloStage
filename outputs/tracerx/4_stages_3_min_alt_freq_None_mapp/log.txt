@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 10079.074336333026 seconds
+Running all of problem_1_1() took 10079.154481875012 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 27.44000000000007
+
+# strictly consistent patients (out of 58 which had enough pathways, dependencies, and levels): 27
+Strictly consistent patients: [2, 4, 5, 6, 17, 20, 24, 26, 29, 30, 36, 47, 49, 51, 56, 59, 61, 64, 65, 66, 68, 69, 73, 75, 80, 81, 99]
+
+# partially consistent patients (out of the remaining 99 - 27 = 72 that weren't strictly consistent): 17
+Partially consistent patients: [7, 22, 28, 35, 43, 57, 63, 76, 79, 83, 84, 85, 86, 87, 93, 94, 96]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 54): 38
+alterations used: ['ARHGAP35', 'TP53', 'EGFR', 'MGA', 'TERT', 'RB1', 'KRAS', 'MET', 'CDKN2A', 'NOTCH1', 'SMAD4', 'NRAS', 'CMTR2', 'KEAP1', 'PLXNB2', 'SGK223', 'STK11', 'MYC', 'U2AF1', 'LATS1', 'CBLB', 'PTPRC', 'FAT1', 'DNM2', 'KMT2D', 'ATM', 'SERPINB13', 'APC', 'CCND1', 'FBXW7', 'FGFR1', 'CREBBP', 'PHOX2B', 'NOTCH2', 'UBR5', 'FANCM', 'SMARCA4', 'SOX2']
+Pathways: {1: ['EGFR', 'MGA', 'TERT', 'MYC', 'U2AF1', 'LATS1', 'FAT1', 'PHOX2B', 'SOX2'], 2: ['RB1', 'NOTCH1', 'CMTR2', 'KEAP1', 'STK11', 'PTPRC', 'DNM2', 'CCND1', 'FBXW7', 'FGFR1', 'FANCM'], 3: ['KRAS', 'CDKN2A', 'SMAD4', 'NRAS', 'PLXNB2', 'CBLB', 'KMT2D', 'ATM', 'SERPINB13', 'UBR5'], 4: ['ARHGAP35', 'TP53', 'MET', 'SGK223', 'APC', 'CREBBP', 'NOTCH2', 'SMARCA4']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('ARHGAP35', 'TP53', 'MET', 'SGK223', 'APC', 'CREBBP', 'NOTCH2', 'SMARCA4'), ('EGFR', 'MGA', 'TERT', 'MYC', 'U2AF1', 'LATS1', 'FAT1', 'PHOX2B', 'SOX2'), ('KRAS', 'CDKN2A', 'SMAD4', 'NRAS', 'PLXNB2', 'CBLB', 'KMT2D', 'ATM', 'SERPINB13', 'UBR5'), ('RB1', 'NOTCH1', 'CMTR2', 'KEAP1', 'STK11', 'PTPRC', 'DNM2', 'CCND1', 'FBXW7', 'FGFR1', 'FANCM')]
+CBNPM edges: [(('ARHGAP35', 'TP53', 'MET', 'SGK223', 'APC', 'CREBBP', 'NOTCH2', 'SMARCA4'), ('EGFR', 'MGA', 'TERT', 'MYC', 'U2AF1', 'LATS1', 'FAT1', 'PHOX2B', 'SOX2')), (('EGFR', 'MGA', 'TERT', 'MYC', 'U2AF1', 'LATS1', 'FAT1', 'PHOX2B', 'SOX2'), ('RB1', 'NOTCH1', 'CMTR2', 'KEAP1', 'STK11', 'PTPRC', 'DNM2', 'CCND1', 'FBXW7', 'FGFR1', 'FANCM')), (('RB1', 'NOTCH1', 'CMTR2', 'KEAP1', 'STK11', 'PTPRC', 'DNM2', 'CCND1', 'FBXW7', 'FGFR1', 'FANCM'), ('KRAS', 'CDKN2A', 'SMAD4', 'NRAS', 'PLXNB2', 'CBLB', 'KMT2D', 'ATM', 'SERPINB13', 'UBR5'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.0
+
+number of null datasets with >= score for the PM as real dataset does: 0
+
+real score: 138
+
+average null score: 93.29
+
+effect size: 5.7206898252486615
+
+average alterations per pathway: 9.5
+number of alterations with at least 3 frequency: 54

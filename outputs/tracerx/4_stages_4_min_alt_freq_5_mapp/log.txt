@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 211.59010775003117 seconds
+Running all of problem_1_1() took 211.65185625001322 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 19.44000000000007
+
+# strictly consistent patients (out of 58 which had enough pathways, dependencies, and levels): 19
+Strictly consistent patients: [16, 18, 47, 49, 52, 59, 61, 64, 65, 70, 71, 73, 74, 75, 78, 81, 82, 92, 99]
+
+# partially consistent patients (out of the remaining 99 - 19 = 80 that weren't strictly consistent): 25
+Partially consistent patients: [4, 9, 14, 21, 22, 25, 27, 28, 30, 35, 37, 39, 46, 51, 57, 76, 79, 83, 84, 86, 87, 90, 91, 94, 96]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 36): 20
+alterations used: ['TP53', 'MGA', 'TERT', 'RB1', 'KRAS', 'CDKN2A', 'PIK3CA', 'CMTR2', 'BRAF', 'STK11', 'ARID2', 'MYC', 'FAT1', 'COL5A2', 'COL2A1', 'APC', 'CREBBP', 'UBR5', 'FANCM', 'SOX2']
+Pathways: {1: ['TP53', 'CMTR2', 'ARID2', 'APC', 'CREBBP'], 2: ['KRAS', 'CDKN2A', 'PIK3CA', 'BRAF', 'FANCM'], 3: ['MGA', 'TERT', 'STK11', 'COL2A1', 'SOX2'], 4: ['RB1', 'MYC', 'FAT1', 'COL5A2', 'UBR5']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('KRAS', 'CDKN2A', 'PIK3CA', 'BRAF', 'FANCM'), ('MGA', 'TERT', 'STK11', 'COL2A1', 'SOX2'), ('RB1', 'MYC', 'FAT1', 'COL5A2', 'UBR5'), ('TP53', 'CMTR2', 'ARID2', 'APC', 'CREBBP')]
+CBNPM edges: [(('KRAS', 'CDKN2A', 'PIK3CA', 'BRAF', 'FANCM'), ('MGA', 'TERT', 'STK11', 'COL2A1', 'SOX2')), (('MGA', 'TERT', 'STK11', 'COL2A1', 'SOX2'), ('RB1', 'MYC', 'FAT1', 'COL5A2', 'UBR5')), (('TP53', 'CMTR2', 'ARID2', 'APC', 'CREBBP'), ('KRAS', 'CDKN2A', 'PIK3CA', 'BRAF', 'FANCM'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.0
+
+number of null datasets with >= score for the PM as real dataset does: 0
+
+real score: 116
+
+average null score: 94.399
+
+effect size: 3.8252655122827894
+
+average alterations per pathway: 5.0
+number of alterations with at least 4 frequency: 36

@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 34.71748574997764 seconds
+Running all of problem_1_1() took 34.88353566703154 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 16.29752066115708
+
+# strictly consistent patients (out of 77 which had enough pathways, dependencies, and levels): 16
+Strictly consistent patients: [2, 14, 18, 23, 42, 46, 48, 50, 52, 54, 63, 73, 81, 85, 87, 103]
+
+# partially consistent patients (out of the remaining 120 - 16 = 104 that weren't strictly consistent): 20
+Partially consistent patients: [8, 11, 19, 20, 21, 33, 38, 40, 51, 79, 80, 99, 100, 101, 104, 106, 107, 112, 114, 120]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 22): 11
+alterations used: ['NPM1', 'FLT3', 'SF3B1', 'DNMT3A', 'SRSF2', 'NRAS', 'TP53', 'GATA2', 'U2AF1', 'ASXL1', 'EZH2']
+Pathways: {1: ['NPM1', 'SF3B1', 'SRSF2', 'U2AF1', 'EZH2'], 2: ['FLT3', 'NRAS'], 3: ['DNMT3A', 'TP53', 'GATA2', 'ASXL1']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('DNMT3A', 'TP53', 'GATA2', 'ASXL1'), ('FLT3', 'NRAS'), ('NPM1', 'SF3B1', 'SRSF2', 'U2AF1', 'EZH2')]
+CBNPM edges: [(('DNMT3A', 'TP53', 'GATA2', 'ASXL1'), ('NPM1', 'SF3B1', 'SRSF2', 'U2AF1', 'EZH2')), (('NPM1', 'SF3B1', 'SRSF2', 'U2AF1', 'EZH2'), ('FLT3', 'NRAS'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.0
+
+number of null datasets with >= score for the PM as real dataset does: 0
+
+real score: 77
+
+average null score: 35.488
+
+effect size: 6.391163533974234
+
+average alterations per pathway: 3.6666666666666665
+number of alterations with at least 3 frequency: 22

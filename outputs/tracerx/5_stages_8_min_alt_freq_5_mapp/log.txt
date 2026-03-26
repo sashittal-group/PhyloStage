@@ -1,0 +1,42 @@
+Set parameter LogToConsole to value 0
+
+Running the ILP took 8.037275374983437 seconds
+Running all of problem_1_1() took 8.15852320799604 seconds
+
+is MIP (should be 1): 1
+is QCP (should be 0): 0
+is optimal (should be True): True
+Score: 8.369999999999992
+
+# strictly consistent patients (out of 44 which had enough pathways, dependencies, and levels): 8
+Strictly consistent patients: [52, 62, 71, 74, 75, 78, 81, 82]
+
+# partially consistent patients (out of the remaining 99 - 8 = 91 that weren't strictly consistent): 29
+Partially consistent patients: [4, 10, 11, 12, 13, 14, 15, 19, 22, 24, 25, 26, 27, 28, 37, 38, 40, 41, 42, 44, 53, 56, 57, 58, 66, 79, 89, 90, 95]
+
+Note that the following is from the ILP and is before the CBNPM was pruned to remove alterations not present in any of the consistent patients
+alterations used (out of possible 16): 13
+alterations used: ['TP53', 'NF1', 'EGFR', 'MGA', 'KRAS', 'CDKN2A', 'PIK3CA', 'KEAP1', 'MYC', 'FAT1', 'COL5A2', 'FGFR1', 'SOX2']
+Pathways: {1: ['MGA', 'SOX2'], 2: ['PIK3CA', 'KEAP1'], 3: ['NF1', 'MYC', 'FAT1', 'COL5A2'], 4: ['EGFR', 'KRAS', 'CDKN2A', 'FGFR1'], 5: ['TP53']}
+
+The CBNPM after removing alterations not present in any of the consistent patients:
+The CBNPM was saved to PM.png
+CBNPM nodes: [('EGFR', 'KRAS', 'CDKN2A', 'FGFR1'), ('MGA', 'SOX2'), ('NF1', 'MYC', 'FAT1', 'COL5A2'), ('PIK3CA', 'KEAP1'), ('TP53',)]
+CBNPM edges: [(('EGFR', 'KRAS', 'CDKN2A', 'FGFR1'), ('TP53',)), (('MGA', 'SOX2'), ('PIK3CA', 'KEAP1')), (('PIK3CA', 'KEAP1'), ('NF1', 'MYC', 'FAT1', 'COL5A2')), (('TP53',), ('MGA', 'SOX2'))]
+correct (as in, every strictly consistent patient according to ilp is in fact strictly consistent, every partially consistent patient is in fact partially but not strictly consistent, and and every patient not consistent is in fact not consistent):
+True
+
+
+
+p_1-value: 0.003
+
+number of null datasets with >= score for the PM as real dataset does: 3
+
+real score: 84
+
+average null score: 67.334
+
+effect size: 2.8845981654846757
+
+average alterations per pathway: 2.6
+number of alterations with at least 8 frequency: 16
