@@ -30,7 +30,7 @@ The code has been tested on Python 3.14.
 The notebook [simulations](notebooks/simulations.ipynb) runs PhyloStage and MASTRO on simulated data. The notebook [Simulation-Results](notebooks/Simulation-Results.ipynb) summarises the results.
 
 ### On AML Data
-The notebook [AML](notebooks/AML.ipynb) runs PhyloStage on AML Data.
+The notebook [AML](notebooks/AML.ipynb) runs PhyloStage on AML Data. The progression models from running PhyloStage with different parameters are in this folder [outputs/AML](outputs/AML/).
 
 ### On TRACERx Data
 The notebook [TRACERx](notebooks/TRACERx.ipynb) runs PhyloStage on TRACERx Data. The notebook [TRACERx-Results](notebooks/TRACERx-Results.ipynb) summarises the findings.
